@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+//global scope
+        let name="asifa";
+
+
+        {
+
+        }
+        function sai(){
+            console.log(name)
+        }
+        sai()
+
+
+//block scope
+
+{
+
+}
+
+if(true){       // let,const-block scoped
+    let a=25;
+    var b=56;
+    const c=90;
+
+}
+
+// console.log(a)
+// console.log(b)
+// console.log(c)
+
+
+
+
+//function scope
+
+function jyothi(){   //var- function scoped
+  let x=25;
+    var y=56;
+    const z=90;
+}
+
+// jyothi()
+// console.log(x)
+console.log(y)
+// console.log(z)
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="return validation()" action="https://www.google.com/">
+        <div>
+            <input type="text" placeholder="enter your name" id="name">
+        </div>
+        <div>
+            <input type="text" placeholder="enter your email" id="email">
+        </div>
+
+        <div>
+            <input type="radio" id="male" name="gender">
+            <label for="male">male</label>
+
+            <input type="radio" id="female" name="gender">
+            <label for="female">female</label>
+        </div>
+
+        <button>Submit</button>
+    </form>
+
+
+    <script>
+        function validation() {
+            let name = document.getElementById("name").value;
+            let email=document.getElementById("email").value;
+            let male=document.getElementById("male");
+            let female=document.getElementById("female");
+            console.log(name)
+            let namecheck = /^[a-zA-Z0-9_]{3,16}$/
+          let emailcheck = /^[a-zA-Z0-9._%+-]+@codegnan\.com$/;
+            if (name == "") {
+                alert("please enter your name");
+                return false
+            }
+            if (!name.match(namecheck)) {
+                alert("enter valid nameeee");
+                return false
+            }
+            if(!email.match(emailcheck)){
+                alert("please enter valid email");
+                return false
+            }
+
+            if(male.checked==false && female.checked==false){
+                alert("please select your gender");
+                return false
+            }
+            return true
+
+        }
+    </script>
+</body>
+
+</html>

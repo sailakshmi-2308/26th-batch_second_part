@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function jyothi() {
+            console.log("hello jyothi")
+        }
+        jyothi()
+
+        let asifa = () => { console.log("hello jyothi") }
+        asifa()
+
+
+        console.log(window.name)
+        var name = "tapasya"
+        var obj = {
+            name: "satheesh",
+            arrow: () => {
+                console.log(`hellooo ${this.name}`)
+            },
+            normal: function () {
+                console.log(`hellooo ${this.name}`)
+            }
+        }
+
+        obj.normal()
+        obj.arrow()
+
+
+        function test(){
+            console.log(arguments)
+        }
+        test(2,3,4,5,6)
+
+        
+        let chandhana=()=>{
+              console.log(arguments)
+        }
+             chandhana(2,3,4,5,6)
+
+    </script>
+
+</body>
+
+</html>

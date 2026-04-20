@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //spread
+        let number=[3,4,67,89,90]
+
+        let chandhana=[... number]
+        console.log(chandhana);
+
+        let obj={
+            name:"likhith",
+            age:20
+        }
+        let jagadeesh={...obj}
+        console.log(jagadeesh)
+
+        let array1=[2,3,4,5]
+        let array2=[7,8,9,0]
+
+        let siri=[45,78,...array1, ...array2]
+        console.log(siri)
+
+        //rest operator-  ...
+
+        function add(a,b,...tarun){
+            console.log(tarun)
+        }
+        add(4,5,6,7,8)
+
+        let objectt={
+            name:"nikesh",
+            age:20,
+            place:"vijayawada"
+        }
+
+        let {name,...jyothi}=objectt;
+        console.log(jyothi)
+
+
+
+
+
+    </script>
+</body>
+</html>
