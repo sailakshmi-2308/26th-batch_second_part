@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        #patients,tr,td,th{
+            border:2px solid black;
+            border-collapse: collapse;
+            padding:15px
+        }
+    </style>
+</head>
+<body>
+    <table id="patients">
+
+    </table>
+    <script>
+
+        onload=function(){
+             getPatients()
+        }
+        function getPatients(){
+            axios.get("https://doc-back.onrender.com/patients")
+            .then((result)=>{
+                console.log(result)
+                console.log(result.data);
+                showPatients(result.data)
+
+            })
+
+        }
+
+       
+
+        function showPatients(patients){
+            console.log(patients);
+            let patients_field=document.getElementById("patients");
+            patients_field.innerHTML=`
+            <tr>
+                <th>name</th>
+                 <th>gender</th>
+                  <th>email</th>
+                   <th>disease</th>
+                    <th> doctor name</th>
+                       <th> doctor specialization</th>
+             </tr>
+            
+            `
+            patients.map((i)=>{
+                patients_field.innerHTML+=
+                `
+                <tr>
+                    <td>${i.name}</td>
+                     <td>${i.gender}</td>
+                      <td>${i.email}</td>
+                       <td>${i.disease}</td>
+                       <td>${i.doctor.name}</td>
+                       <td>${i.doctor.specialization}</td>
+                    
+                    
+                    
+                    
+                 </tr>
+                
+                
+                
+                
+                
+                
+                `
+
+
+            }
+
+            )
+
+
+        }
+
+
+    </script>
+</body>
+</html>

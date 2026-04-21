@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <input type="text" placeholder="enter your city name" id="city">
+    <button onclick="getWeather()">Submit</button>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        async function getWeather(){
+
+            let city=document.getElementById("city").value
+            let APIkey="d1d7acb0dc3a86aeea933692dc9024cf"
+            if(city==""){
+                alert("Please enter your city name")
+                return;
+            }
+
+            try{
+          let response= await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`)
+           let data=response.data;
+              console.log(data);
+                document.getElementById("result").innerHTML=
+                `<h2>${data.name}</h2>
+                <p>Temperature: ${data.main.temp}°C</p>
+                <p>Weather: ${data.weather[0].description}</p>
+                <p>Humidity: ${data.main.humidity}%</p>
+                <p>Wind Speed: ${data.wind.speed} m/s</p>
+                
+                `
+
+
+
+            }
+            catch(error){
+                console.log(error);
+                alert("Please enter a valid city name")
+            }
+        }
+    </script>
+</body>
+</html>
